@@ -7,9 +7,9 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        i = m + n - 1;
-        p1 = m - 1;
-        p2 = n - 1;
+        i = m + n - 1
+        p1 = m - 1
+        p2 = n - 1
         while p1 > -1 or p2 > -1:
             if p1 == -1 and p2 > -1:
                 nums1[i] = nums2[p2]
