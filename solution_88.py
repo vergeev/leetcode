@@ -7,19 +7,20 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        nums1_ = nums1[:m]
-        p1, p2, i = 0, 0, 0
-        while p1 < m or p2 < n:
-            if p1 >= m and p2 < n:
+        i = m + n - 1;
+        p1 = m - 1;
+        p2 = n - 1;
+        while p1 > -1 or p2 > -1:
+            if p1 == -1 and p2 > -1:
                 nums1[i] = nums2[p2]
-                p2 += 1
-            elif p2 >= n and p1 < m:
-                nums1[i] = nums1_[p1]
-                p1 += 1
-            elif p1 < m and p2 < n and nums1_[p1] <= nums2[p2]:
-                nums1[i] = nums1_[p1]
-                p1 += 1
-            elif p1 < m and p2 < n and nums1_[p1] > nums2[p2]:
+                p2 -= 1
+            elif p2 == -1 and p1 > -1:
+                nums1[i] = nums1[p1]
+                p1 -= 1
+            elif p1 > -1 and p2 > -1 and nums1[p1] >= nums2[p2]:
+                nums1[i] = nums1[p1]
+                p1 -= 1
+            elif p1 > -1 and p2 > -1 and nums1[p1] < nums2[p2]:
                 nums1[i] = nums2[p2]
-                p2 += 1
-            i += 1
+                p2 -= 1
+            i -= 1
