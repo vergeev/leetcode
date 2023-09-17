@@ -5,19 +5,17 @@
 #
 
 # @lc code=start
+from itertools import zip_longest
+
+
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         merged = []
-        try:
-            for c1, c2 in zip(word1, word2, strict=True):
+        for c1, c2 in zip_longest(word1, word2):
+            if c1:
                 merged.append(c1)
+            if c2:
                 merged.append(c2)
-        except ValueError:
-            if len(word1) > len(word2):
-                merged.append(word1[len(word2):])
-            else:
-                # len(word1) < len(word2) 
-                merged.append(word2[len(word1):])
         return ''.join(merged)
 # @lc code=end
 
