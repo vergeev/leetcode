@@ -1,5 +1,5 @@
 import pytest
-from solution_88 import Solution
+from src.solution_88 import Solution
 
 
 @pytest.mark.parametrize(
